@@ -50,7 +50,7 @@ include ('../../app/controllers/users.php');
 <section class="home">
     <div class="posts">
         <div class="btns">
-            <a href="">Add Post</a>
+            <a href="<?php echo BASE_URL . "admin/posts/create.php" ?>">Add Post</a>
             <a class="manage" href="">Manage Post</a>
         </div>
         <div class="upSide">

@@ -70,7 +70,6 @@ include ('../../app/controllers/users.php');
 <script src="../../assets/js/fontawesome.js"></script>
 <script src="../../assets/js/emmet.min.js"></script>
 <script src="../../assets/js/highlight.min.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
 </body>
 </html>
