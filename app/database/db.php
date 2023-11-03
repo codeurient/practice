@@ -2,6 +2,8 @@
 include 'path.php';
 
 session_start();
+session_regenerate_id(true); // 02/11/2023
+
 require ('connect.php');
 
 
@@ -14,6 +16,7 @@ function viewTest($value){
     echo "<pre>";
     print_r($value);
     echo "</pre>";
+    exit();
 }
 
 function dbCheckError($query) {
@@ -160,10 +163,10 @@ function update($table, $id, $params) {
     dbCheckError($query);
 }
 //$param = [
-//    'admin' => 0,
-//    'password' => '333'
+////    'admin' => 0,
+//    'status' => 'mentor'
 //];
-//update('users', 5, $param);
+//update('users', 65, $param);
 
 
 

@@ -1,7 +1,8 @@
 <?php
-session_start();
-include  '../../path.php';
-include ('../../app/controllers/users.php');
+    session_start();
+    include  '../../path.php';
+    //include ('../../app/controllers/users.php');
+    include ('../../app/controllers/topics.php');
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,7 @@ include ('../../app/controllers/users.php');
             justify-content: flex-start;
             width: 20%;
             padding: 10px;
-            border: 1px solid black;
+            border-bottom: 1px solid black;
         }
         .upSide .last{
             width: 45%;
@@ -51,7 +52,7 @@ include ('../../app/controllers/users.php');
     <div class="posts">
         <div class="btns">
             <a href="<?php echo BASE_URL . "admin/topics/create.php" ?>">Add Category</a>
-            <a href="" class="manage" >Manage Category</a>
+            <a href="<?php echo BASE_URL . "admin/topics/index.php" ?>" class="manage" >Manage Category</a>
         </div>
         <div class="upSide">
             <div>ID</div>
@@ -59,18 +60,17 @@ include ('../../app/controllers/users.php');
             <div class="last">Control</div>
         </div>
 
-        <div class="downSide">
-            <div>1</div>
-            <div>JavaScript</div>
-            <div><a href="">edit</a></div>
-            <div><a href="">delete</a></div>
-        </div>
+        <?php foreach ($topics as $key => $topic): ?>
+            <div class="downSide">
+                <div> <?= $key + 1 ?> </div>
+                <div><?= $topic['name']; ?></div>
+                <div><a href="edit.php?id=<?= $topic['id']; ?>">edit</a></div>
+                <div><a href="edit.php?del_id=<?= $topic['id']; ?>">delete</a></div>
+            </div>
+        <?php endforeach; ?>
     </div>
 
 </section>
-
-
-
 
 
 
@@ -81,4 +81,4 @@ include ('../../app/controllers/users.php');
 <script src="../../assets/js/highlight.min.js"></script>
 
 </body>
-    </html><?php
+</html>

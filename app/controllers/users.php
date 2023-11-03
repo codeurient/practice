@@ -9,6 +9,9 @@ function userAuth($user){
     $_SESSION['admin'] = $user['admin'];
     $_SESSION['status'] = $user['status'];
 
+//    viewTest($_SESSION);
+//    exit();
+
     if($_SESSION['admin']){
         header('location: ' . BASE_URL . "admin/posts/index.php");
     } else {
@@ -17,7 +20,6 @@ function userAuth($user){
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
-
 //    viewTest($_POST);
 //    exit();
 
@@ -51,6 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
             ];
             $id = insert('users', $post);
             $user = selectOne('users', ['id' => $id]);
+
             userAuth($user);
             //$errMsg = "Пользователь " . "<strong>" . $login . "</strong>" . " успешно зарегистрирован!";
         }
@@ -71,6 +74,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
         $errMsg = "Не все поля заполнены";
     } else{
         $existence = selectOne('users', ['email' => $email]);
+
         if($existence && password_verify($pass, $existence['password'])){
             userAuth($existence);
         } else{
@@ -90,9 +94,9 @@ function getCurrentUserId($sessionId, $field){
     $result = selectOne('users', ['id' => $sessionId]);
     if ($result) {
         $adminValue = $result[$field];
-        if ($adminValue != $_SESSION['admin']) {
+        if ($adminValue != $_SESSION[$field]) {
             // Обновляем значение в сессии, если оно изменилось в базе данных
-            $_SESSION['admin'] = $adminValue;
+            $_SESSION[$field] = $adminValue;
         }
         return $adminValue; // Возвращаем значение admin
     }
@@ -102,6 +106,24 @@ function getCurrentUserId($sessionId, $field){
 
 
 
+
+
+
+//function getCurrentUserId($sessionId, $field){
+//    $result = selectOne('users', ['id' => $sessionId]);
+//    if ($result) {
+//        $adminValue = $result[$field];
+//        if ($adminValue != $_SESSION['admin']) {
+//            // Обновляем значение в сессии, если оно изменилось в базе данных
+//            $_SESSION['admin'] = $adminValue;
+//        } elseif ($adminValue != $_SESSION['status']) {
+//            $_SESSION['status'] = $adminValue;
+//        }
+//        return $adminValue; // Возвращаем значение admin
+//    }
+//    return null; // Возвращаем null, если запись не найдена или другая ошибка
+//}
+////viewTest(getCurrentUserId());
 
 
 

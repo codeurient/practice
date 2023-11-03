@@ -219,7 +219,7 @@ for (var i = 0; i < arrow.length; i++){
 
 
 // Get all radio buttons with the name "user_role"
-let radioButtons = document.querySelectorAll('input[name="user_role"]');
+let radioButtons = document.querySelectorAll('input[name="status"]');
 
 // Add a change event listener to each radio button
 radioButtons.forEach(function (radioButton) {

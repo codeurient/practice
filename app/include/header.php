@@ -19,51 +19,57 @@
                 <!--            </ul>-->
             </li>
         <?php endif; ?>
-        <li>
-            <div class="icon-link">
-                <a href="">
-                    <i class="bx bx-collection"></i>
-                    <span class="link_name text">Status</span>
-                </a>
-                <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-<!--            <ul class="sub-menu">-->
-<!--                <li><a class="link_name text no-drop-link" href="#">Status</a></li>-->
-<!--                <li><a href="#">Mentor</a></li>-->
-<!--                <li><a href="#">Mentee</a></li>-->
-<!--            </ul>-->
-            <form id="roleForm" action="app/controllers/status.php" method="post">
-                <ul class="sub-menu">
-                    <li><a class="link_name text no-drop-link" href="#">Status</a></li>
-                    <li>
-                        <label>
-                            <input type="radio" id="mentorRadio" name="user_role" value="mentor">
-                            <span class="custom-radio-label">Mentor</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" id="menteeRadio" name="user_role" value="mentee">
-                            <span class="custom-radio-label">Mentee</span>
-                        </label>
-                    </li>
-                </ul>
-            </form>
-        </li>
-        <li>
-            <div class="icon-link">
-                <a href="">
-                    <i class="bx bx-book-alt"></i>
-                    <span class="link_name text">Posts</span>
-                </a>
-<!--                <i class="bx bxs-chevron-down arrow"></i>-->
-            </div>
-<!--            <ul class="sub-menu">-->
-<!--                <li><a class="link_name no-drop-link" href="#">Posts</a></li>-->
-<!--                <li><a href="#">Web Design</a></li>-->
-<!--                <li><a href="#">Login Form</a></li>-->
-<!--            </ul>-->
-        </li>
+
+        <?php if(isset($_SESSION['id'])): ?>
+            <li>
+                <div class="icon-link">
+                    <a href="">
+                        <i class="bx bx-collection"></i>
+                        <span class="link_name text">Status</span>
+                    </a>
+                    <i class="bx bxs-chevron-down arrow"></i>
+                </div>
+    <!--            <ul class="sub-menu">-->
+    <!--                <li><a class="link_name text no-drop-link" href="#">Status</a></li>-->
+    <!--                <li><a href="#">Mentor</a></li>-->
+    <!--                <li><a href="#">Mentee</a></li>-->
+    <!--            </ul>-->
+                <form id="roleForm" action="index.php" method="post">
+                    <ul class="sub-menu">
+                        <li><a class="link_name text no-drop-link" href="">Status</a></li>
+                        <li>
+                            <label>
+                                <input type="radio" id="mentorRadio" name="status" value="mentor">
+                                <span class="custom-radio-label">Mentor</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" id="menteeRadio" name="status" value="mentee">
+                                <span class="custom-radio-label">Mentee</span>
+                            </label>
+                        </li>
+                    </ul>
+                </form>
+            </li>
+        <?php endif; ?>
+
+        <?php if( isset($_SESSION['id']) && getCurrentUserId($_SESSION['id'], 'status') == 'mentor' ): ?>
+            <li>
+                <div class="icon-link">
+                    <a href="<?php echo BASE_URL .  "create.php"?>">
+                        <i class="bx bx-book-alt"></i>
+                        <span class="link_name text">Posts</span>
+                    </a>
+    <!--                <i class="bx bxs-chevron-down arrow"></i>-->
+                </div>
+    <!--            <ul class="sub-menu">-->
+    <!--                <li><a class="link_name no-drop-link" href="#">Posts</a></li>-->
+    <!--                <li><a href="#">Web Design</a></li>-->
+    <!--                <li><a href="#">Login Form</a></li>-->
+    <!--            </ul>-->
+            </li>
+        <?php endif; ?>
         <li>
             <a href="">
                 <i class="bx bx-pie-chart-alt-2"></i>

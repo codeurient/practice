@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    include  '../../path.php';
-    //include ('../../app/controllers/users.php');
-    include ('../../app/controllers/topics.php');
+session_start();
+include  '../../path.php';
+//include ('../../app/controllers/users.php');
+include ('../../app/controllers/topics.php');
 ?>
 
 <!DOCTYPE html>
@@ -34,23 +34,26 @@
     <div class="posts">
 
         <div class="btns">
-            <a href="">Add Category</a>
+            <a href="">Update Category</a>
             <a class="manage" href="<?php echo BASE_URL . "admin/topics/index.php" ?>">Manage Category</a>
         </div>
 
         <div style="margin: 20px 0;" class="errMsg"> <?= $errMsg ?> </div>
 
         <div>
-            <form action="../topics/create.php" method="post">
+            <form action="edit.php" method="post">
+
+                <input name="id" value="<?= $id; ?>" type="hidden">
+                
                 <div>
                     <input value="<?= $name; ?>" name="name" type="text" placeholder="category name">
                 </div>
                 <div>
-<!-- Xeta var buna gore ->  $description;   -->
+                    <!-- Xeta var buna gore ->  $description;   -->
                     <textarea name="description" cols="30" rows="10" placeholder="description"><?= $description; ?></textarea>
                 </div>
                 <div>
-                    <button name="topic-create" type="submit">Save</button>
+                    <button name="topic-edit" type="submit">Update</button>
                 </div>
             </form>
         </div>
