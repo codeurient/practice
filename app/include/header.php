@@ -122,6 +122,12 @@
 <!--            </ul>-->
         </li>
         <li>
+            <a href="<?php echo BASE_URL . "test_output_index.php" ?>">
+                <i class="bx bx-plug"></i>
+                <span class="link_name text">Test data output</span>
+            </a>
+        </li>
+        <li>
             <?php if(isset($_SESSION['id'])): ?>
                 <div class="profile-details">
                     <div class="profile-content">

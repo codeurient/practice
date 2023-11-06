@@ -24,13 +24,13 @@
         <li>
             <a href="<?php echo BASE_URL . "admin/topics/index.php" ?>">
                 <i class="bx bx-compass"></i>
-                <span class="link_name text">Users</span>
+                <span class="link_name text">Category</span>
             </a>
         </li>
         <li>
             <a href="<?php echo BASE_URL . "admin/users/index.php" ?>">
                 <i class="bx bx-plug"></i>
-                <span class="link_name text">Category</span>
+                <span class="link_name text">Users</span>
             </a>
         </li>
         <li>

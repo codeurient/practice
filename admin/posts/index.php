@@ -1,7 +1,6 @@
 <?php
-session_start();
-include  '../../path.php';
-include ('../../app/controllers/users.php');
+    include  '../../path.php';
+    include ('../../app/controllers/posts.php');
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +33,13 @@ include ('../../app/controllers/users.php');
             flex-grow: 1;
             display: flex;
             justify-content: flex-start;
-            width: 20%;
+            /*width: 20%;*/
             padding: 10px;
             border: 1px solid black;
+            flex-basis: 200px;
         }
         .upSide .last{
-            width: 40%;
+            /*width: 40%;*/
         }
     </style>
 </head>
@@ -58,15 +58,24 @@ include ('../../app/controllers/users.php');
             <div>Title</div>
             <div>Avtor</div>
             <div class="last">Control</div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
         </div>
 
-        <div class="downSide">
-            <div>1</div>
-            <div>Lorem ipsum dolor sit amet, con...</div>
-            <div>Admin</div>
-            <div><a href="">edit</a></div>
-            <div><a href="">delete</a></div>
-        </div>
+        <?php foreach ($postsAdm as $key => $post): ?>
+            <div class="downSide">
+                <div><?= $key + 1 ?></div>
+                <div><?= $post['title'] ?></div>
+                <div><?= $post['username'] ?></div>
+                <div><a href="">edit</a></div>
+                <div><a href="">delete</a></div>
+                <?php if($post['status']): ?>
+                    <div><a href="">Posted</a></div>
+                <?php else: ?>
+                    <div><a href="">Share</a></div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
     </div>
 
 </section>
