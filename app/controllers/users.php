@@ -100,7 +100,7 @@ function getCurrentUserId($sessionId, $field){
             // Обновляем значение в сессии, если оно изменилось в базе данных
             $_SESSION[$field] = $adminValue;
         }
-        return $adminValue; // Возвращаем значение admin
+        return $adminValue; // Возвращаем значение
     }
     return null; // Возвращаем null, если запись не найдена или другая ошибка
 }

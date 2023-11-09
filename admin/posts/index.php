@@ -1,6 +1,7 @@
 <?php
     include  '../../path.php';
     include ('../../app/controllers/posts.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -67,12 +68,12 @@
                 <div><?= $key + 1 ?></div>
                 <div><?= $post['title'] ?></div>
                 <div><?= $post['username'] ?></div>
-                <div><a href="">edit</a></div>
-                <div><a href="">delete</a></div>
+                <div><a href="edit.php?id=<?= $post['id'] ?>">edit</a></div>
+                <div><a href="edit.php?delete_id=<?= $post['id'] ?>">delete</a></div>
                 <?php if($post['status']): ?>
-                    <div><a href="">Posted</a></div>
+                    <div><a href="edit.php?publish=0&pub_id=<?= $post['id'] ?>">Unpublish</a></div>
                 <?php else: ?>
-                    <div><a href="">Share</a></div>
+                    <div><a href="edit.php?publish=1&pub_id=<?= $post['id'] ?>">Publish</a></div>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>

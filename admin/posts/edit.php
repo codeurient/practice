@@ -1,6 +1,6 @@
 <?php
-    include  '../../path.php';
-    include ('../../app/controllers/posts.php');
+include  '../../path.php';
+include ('../../app/controllers/posts.php');
 ?>
 
 <!DOCTYPE html>
@@ -30,22 +30,18 @@
 
 <section class="home">
     <div class="posts">
-        <div class="btns">
-            <a href="">Add Post</a>
-            <a class="manage" href="<?php echo BASE_URL . "admin/posts/index.php" ?>">Manage Post</a>
-        </div>
         <div>
-
             <div style="color: red;">
                 <?php include('../../app/helps/errorInfo.php') ?>
             </div>
 
-            <form action="create.php" method="post" enctype="multipart/form-data">
+            <form action="edit.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?=$id; ?>">
                 <div>
-                    <input value="<?= $title; ?>" name="title" type="text" placeholder="title">
+                    <input value="<?= $post['title']; ?>" name="title" type="text" placeholder="title">
                 </div>
                 <div>
-                    <textarea name="content" id="editor" cols="30" rows="10"><?= $content; ?></textarea>
+                    <textarea name="content" id="editor" cols="30" rows="10"><?= $post['content']; ?></textarea>
                 </div>
                 <div>
                     <input name="img" type="file" id="file">
@@ -53,17 +49,20 @@
                 </div>
                 <div>
                     <select name="topic">
-                        <option selected disabled>Open this select menu</option>
                         <?php foreach ($topics as $key => $topic): ?>
                             <option value="<?= $topic['id'] ?>"><?= $topic['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div>
-                    <input name="publish" type="checkbox" value="1"> Publish
+                   <?php if (empty($publish) && $publish == 0): ?>
+                        <input name="publish" type="checkbox" > Publish <?= $publish; ?>
+                   <?php else:?>
+                       <input name="publish" type="checkbox" checked> Shared <?= $publish; ?>
+                   <?php endif; ?>
                 </div>
                 <div>
-                    <button name="add_post" type="submit">Save</button>
+                    <button name="edit_post" type="submit">Update</button>
                 </div>
             </form>
         </div>
