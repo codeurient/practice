@@ -29,28 +29,28 @@
                     </a>
                     <i class="bx bxs-chevron-down arrow"></i>
                 </div>
-    <!--            <ul class="sub-menu">-->
-    <!--                <li><a class="link_name text no-drop-link" href="#">Status</a></li>-->
-    <!--                <li><a href="#">Mentor</a></li>-->
-    <!--                <li><a href="#">Mentee</a></li>-->
-    <!--            </ul>-->
-                <form id="roleForm" action="index.php" method="post">
-                    <ul class="sub-menu">
-                        <li><a class="link_name text no-drop-link" href="">Status</a></li>
-                        <li>
-                            <label>
-                                <input type="radio" id="mentorRadio" name="status" value="mentor">
-                                <span class="custom-radio-label">Mentor</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="radio" id="menteeRadio" name="status" value="mentee">
-                                <span class="custom-radio-label">Mentee</span>
-                            </label>
-                        </li>
-                    </ul>
-                </form>
+                <ul class="sub-menu">
+                    <li><a class="link_name text no-drop-link" href="#">Status</a></li>
+                    <li><a href="index.php?user_status=mentor&user_status_id=<?= $_SESSION['id'] ?>">Mentor</a></li>
+                    <li><a href="index.php?user_status=mentee&user_status_id=<?= $_SESSION['id'] ?>">Mentee</a></li>
+                </ul>
+<!--                <form id="roleForm" action="index.php" method="post">-->
+<!--                    <ul class="sub-menu">-->
+<!--                        <li><a class="link_name text no-drop-link" href="">Status</a></li>-->
+<!--                        <li>-->
+<!--                            <label>-->
+<!--                                <input type="radio" id="mentorRadio" name="status" value="mentor">-->
+<!--                                <span class="custom-radio-label">Mentor</span>-->
+<!--                            </label>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <label>-->
+<!--                                <input type="radio" id="menteeRadio" name="status" value="mentee">-->
+<!--                                <span class="custom-radio-label">Mentee</span>-->
+<!--                            </label>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </form>-->
             </li>
         <?php endif; ?>
 

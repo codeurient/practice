@@ -93,14 +93,6 @@ if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])){
 }
 
 
-
-
-
-
-
-
-
-
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post'])){
 
     $id = $_POST['id'];
@@ -152,7 +144,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post'])){
     $content = $_POST['content'];
     $topic = $_POST['id_topic'];
 }
-
 
 
 if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['pub_id'])){

@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    include  '../../path.php';
-    include ('../../app/controllers/users.php');
+session_start();
+include  '../../path.php';
+include ('../../app/controllers/users.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,18 +40,20 @@
                 <?php include('../../app/helps/errorInfo.php') ?>
             </div>
 
-            <form action="create.php" method="post">
-                <input class="always-white" name="login" value="<?= $login ?>" type="text" placeholder="Login">
+            <form action="edit.php" method="post">
+                <input name="id" value="<?= $id; ?>" type="hidden">
 
-                <input class="always-white" name="mail" value="<?= $email ?>" type="email" placeholder="Email">
+                <input class="always-white" name="login" value="<?= $username; ?>" type="text" placeholder="Login">
 
-                <input class="always-white" name="pass-first" type="password" placeholder="Password">
+                <input class="always-white" name="mail" value="<?= $email; ?>" readonly disabled type="email" placeholder="Email">
+
+                <input class="always-white" name="pass-first" type="password" placeholder="Reset password">
                 <input class="always-white" name="pass-second" type="password" placeholder="Repeat password">
 
-                <input name="admin" type="checkbox" value="1"  id="admin" > Admin?
+                <input <?php if($admin == 1) echo "checked" ?> name="admin" type="checkbox" value="1"  id="admin"  > Admin?
 
                 <div>
-                    <button name="create-user" type="submit">Create</button>
+                    <button name="update-user" type="submit">Update</button>
                 </div>
             </form>
         </div>

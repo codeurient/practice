@@ -1,4 +1,5 @@
 <?php
+    include 'path.php';
     include ("app/controllers/users.php");
 ?>
 <!DOCTYPE html>
@@ -68,7 +69,9 @@
 
 <div class="center">
     <h2>Аутентификация</h2>
-    <div class="errMsg"> <?= $errMsg ?> </div>
+    <div style="color: red;">
+        <?php include('app/helps/errorInfo.php') ?>
+    </div>
     <form action="reg.php" method="post">
         <input class="always-white" name="login" value="<?= $login ?>" type="text" placeholder="Login">
 

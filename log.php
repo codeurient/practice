@@ -1,4 +1,5 @@
 <?php
+    include 'path.php';
     include ("app/controllers/users.php");
 ?>
 <!DOCTYPE html>
@@ -66,7 +67,9 @@
 
 <div class="center">
     <h2>Авторизация</h2>
-    <div class="errMsg"> <?= $errMsg ?> </div>
+    <div style="color: red;">
+        <?php include('app/helps/errorInfo.php') ?>
+    </div>
     <form action="log.php" method="post">
 
         <input class="always-white" name="mail" value="<?= $email ?>" type="email" placeholder="Email">

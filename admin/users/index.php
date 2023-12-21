@@ -34,12 +34,13 @@ include ('../../app/controllers/users.php');
             flex-grow: 1;
             display: flex;
             justify-content: flex-start;
-            width: 20%;
+            /*width: 20%;*/
             padding: 10px;
             border: 1px solid black;
+            flex-basis: 200px;
         }
         .upSide .last{
-            width: 40%;
+            /*width: 40%;*/
         }
     </style>
 </head>
@@ -56,17 +57,25 @@ include ('../../app/controllers/users.php');
         <div class="upSide">
             <div>ID</div>
             <div>User name</div>
-            <div>status</div>
+            <div>Email</div>
+            <div>Status</div>
             <div class="last">Control</div>
+            <div>&nbsp;</div>
         </div>
-
-        <div class="downSide">
-            <div>1</div>
-            <div>codeurient</div>
-            <div>admin</div>
-            <div><a href="">edit</a></div>
-            <div><a href="">delete</a></div>
-        </div>
+        <?php foreach ($users as $key => $user): ?>
+            <div class="downSide">
+                <div><?= $user['id']; ?></div>
+                <div><?= $user['username']; ?></div>
+                <div><?= $user['email']; ?></div>
+                <?php if($user['admin'] == 1): ?>
+                    <div>admin</div>
+                <?php else: ?>
+                    <div>user</div>
+                <?php endif; ?>
+                <div><a href="edit.php?edit_id=<?=$user['id']?>">edit</a></div>
+                <div><a href="index.php?delete_id=<?=$user['id']?>">delete</a></div>
+            </div>
+        <?php endforeach; ?>
     </div>
 
 </section>
